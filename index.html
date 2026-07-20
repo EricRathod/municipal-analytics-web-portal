@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Interactive municipal service request analytics dashboard."
+    >
+
+    <title>Municipal Analytics Web Portal</title>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Papa Parse for reading the CSV file -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            Municipal Analytics
+        </div>
+
+        <ul>
+            <li>
+                <a href="#dashboard">Dashboard</a>
+            </li>
+
+            <li>
+                <a href="#departments">Departments</a>
+            </li>
+
+            <li>
+                <a href="#reports">Reports</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>
+            Municipal Analytics Web Portal
+        </h1>
+
+        <p>
+            Interactive dashboard for monitoring municipal service requests,
+            departmental performance, operational costs and citizen satisfaction.
+        </p>
+
+    </section>
+
+    <!-- Main Dashboard -->
+    <main id="dashboard">
+
+        <!-- KPI Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h2 id="totalRequests">
+                    Loading...
+                </h2>
+
+                <p>
+                    Total Requests
+                </p>
+            </div>
+
+            <div class="card">
+                <h2 id="closedRequests">
+                    Loading...
+                </h2>
+
+                <p>
+                    Closed Requests
+                </p>
+            </div>
+
+            <div class="card">
+                <h2 id="averageResolution">
+                    Loading...
+                </h2>
+
+                <p>
+                    Avg Resolution Days
+                </p>
+            </div>
+
+            <div class="card">
+                <h2 id="averageSatisfaction">
+                    Loading...
+                </h2>
+
+                <p>
+                    Citizen Satisfaction
+                </p>
+            </div>
+
+            <div class="card">
+                <h2 id="totalCost">
+                    Loading...
+                </h2>
+
+                <p>
+                    Total Estimated Cost
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Interactive Filters -->
+        <section class="filters-section">
+
+            <div class="filter-group">
+
+                <label for="departmentFilter">
+                    Department
+                </label>
+
+                <select id="departmentFilter">
+
+                    <option value="All">
+                        All Departments
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="filter-group">
+
+                <label for="statusFilter">
+                    Status
+                </label>
+
+                <select id="statusFilter">
+
+                    <option value="All">
+                        All Statuses
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="filter-group">
+
+                <label for="priorityFilter">
+                    Priority
+                </label>
+
+                <select id="priorityFilter">
+
+                    <option value="All">
+                        All Priorities
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button
+                type="button"
+                id="resetFilters"
+            >
+                Reset Filters
+            </button>
+
+        </section>
+
+        <!-- Error Message -->
+        <section
+            id="errorMessage"
+            style="display: none; text-align: center; padding: 20px;"
+        >
+            <p>
+                The dataset could not be loaded. Confirm that the CSV file is
+                inside the project folder and that Live Server is running.
+            </p>
+        </section>
+
+        <!-- Dashboard Charts -->
+        <section class="dashboard">
+
+            <div
+                class="chart"
+                id="departments"
+            >
+                <canvas id="departmentChart"></canvas>
+            </div>
+
+            <div class="chart">
+                <canvas id="statusChart"></canvas>
+            </div>
+
+            <div
+                class="chart"
+                id="reports"
+            >
+                <canvas id="monthlyChart"></canvas>
+            </div>
+
+            <div class="chart">
+                <canvas id="priorityChart"></canvas>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+
+        <p>
+            © 2026 Eric Rathod | Municipal Analytics Web Portal
+        </p>
+
+        <p>
+            Built with HTML, CSS, JavaScript, Chart.js and municipal
+            service-request data.
+        </p>
+
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
